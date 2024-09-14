@@ -13,10 +13,8 @@ const JobOpenings = () => {
   ];
 
   useEffect(() => {
-    // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
 
-    // Animate the title when it enters the viewport
     gsap.from(titleRef.current, {
       y: 50,
       opacity: 0,
@@ -24,12 +22,11 @@ const JobOpenings = () => {
       ease: 'power2.out',
       scrollTrigger: {
         trigger: titleRef.current,
-        start: 'top 80%', // Trigger when the title is 80% from the top of the viewport
-        toggleActions: 'play none none none', // Only play the animation once
+        start: 'top 80%', 
+        toggleActions: 'play none none none', 
       },
     });
 
-    // Animate the job listings when they enter the viewport
     jobRefs.current.forEach((job, index) => {
       gsap.from(job, {
         y: 50,
@@ -38,8 +35,8 @@ const JobOpenings = () => {
         stagger: 0.2,
         ease: 'power2.out',
         scrollTrigger: {
-          trigger: job, // Trigger the animation on each job
-          start: 'top 90%', // Trigger when the job is 90% from the top of the viewport
+          trigger: job, 
+          start: 'top 90%', 
           toggleActions: 'play none none none',
         },
       });
@@ -50,7 +47,7 @@ const JobOpenings = () => {
     <div className="max-w-5xl mx-auto px-6 py-6">
       <h1
         className="text-3xl font-bold text-center mb-8"
-        ref={titleRef} // Reference for the title
+        ref={titleRef}
       >
         Job Openings
       </h1>
@@ -60,7 +57,7 @@ const JobOpenings = () => {
           <div
             key={index}
             className="flex justify-between items-center border-b-2 border-gray-200 py-4"
-            ref={(el) => (jobRefs.current[index] = el)} // Reference for each job div
+            ref={(el) => (jobRefs.current[index] = el)} 
           >
             <div>
               <h2 className="text-xl font-semibold text-gray-800">{job.title}</h2>
